@@ -6,7 +6,7 @@ import datetime
 def line(
     info: str = None,
     width: int = 80,
-    char: str = "-",
+    char: str = "─",
     color: str = "magenta",
     align: int = 1,
     margin: tuple = (1, 1),
@@ -29,7 +29,7 @@ def line(
         color_code = getattr(Fore, color.upper())
         return str(
             color_code + str(char) * width + Fore.RESET
-        )
+        )[0:width]
     sub_limit = len(info) + sum(margin) + align
     if width < sub_limit:
         width = sub_limit
@@ -47,7 +47,7 @@ def line(
                     width - sum(margin) - len(info) - align
                 ),
                 Fore.RESET,
-            ]
+            ][0:width]
         )
 
 
