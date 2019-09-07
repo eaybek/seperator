@@ -1,5 +1,6 @@
 from colorama import Fore, Back, Style
 import shutil
+import datetime
 
 
 def line(
@@ -48,3 +49,11 @@ def line(
                 Fore.RESET,
             ]
         )
+
+
+def dateline():
+    line(
+        datetime.datetime.now().strftime(
+            "%d %b %Y %H:%M:%S"
+        )
+    )
