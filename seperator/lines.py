@@ -55,7 +55,7 @@ def line(
 
 def dateline(
     width: int = 80,
-    char: str = "-",
+    char: str = "─",
     color: str = "magenta",
     align: int = 1,
     margin: tuple = (1, 1),

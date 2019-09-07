@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="seperator",
-    version="0.0.7",
+    version="0.0.9",
     author="Erdem Aybek",
     author_email="eaybek@gmail.com",
     description=" ".join(
