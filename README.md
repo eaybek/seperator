@@ -23,3 +23,12 @@ line("Hello World",margin=(5,5))
 -------------------------------------------------------------- Hello World -----
 -     Hello World     ----------------------------------------------------------
 ```
+
+
+```
+from seperator.lines import dateline  
+# you cannot additional
+# info but other parameters are same with line
+dateline()
+```
+

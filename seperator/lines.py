@@ -51,9 +51,22 @@ def line(
         )
 
 
-def dateline():
-    line(
+def dateline(
+    width: int = 80,
+    char: str = "-",
+    color: str = "magenta",
+    align: int = 1,
+    margin: tuple = (1, 1),
+    *args,
+):
+    return line(
         datetime.datetime.now().strftime(
             "%d %b %Y %H:%M:%S"
-        )
+        ),
+        width,
+        char,
+        color,
+        align,
+        margin,
+        *args,
     )
