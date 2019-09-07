@@ -36,22 +36,19 @@ def line(
     if width < sub_limit:
         width = sub_limit
     else:
+        blank_chars_length = (
+            width - sum(margin) - len(info) - align
+        )
         return "".join(
             [
                 color_code,
-                char * align,
+                str(char * align)[0:align],
                 " " * margin[0],
                 info,
                 " " * margin[1],
-                str(
-                    char
-                    * (
-                        width
-                        - sum(margin)
-                        - len(info)
-                        - align
-                    )
-                )[0:width],
+                str(char * blank_chars_length)[
+                    0:blank_chars_length
+                ],
                 Fore.RESET,
             ]
         )

@@ -59,6 +59,28 @@ class TestLinesFunctions(unittest.TestCase):
             "\x1b[35m" + 80 * "#" + "\x1b[39m",
         )
 
+    def test_triple_char(self):
+        self.assertEqual(
+            line("a", char="####"),
+            "\x1b[35m"
+            + "# "
+            + "a"
+            + " "
+            + 76 * "#"
+            + "\x1b[39m",
+        )
+        self.assertEqual(len(line(char="#")), 90)
+        self.assertEqual(len(line(char="-#")), 90)
+        self.assertEqual(len(line(char="-*#")), 90)
+        self.assertEqual(len(line(char="**#")), 90)
+        self.assertEqual(len(line(char="*#")), 90)
+        self.assertEqual(
+            len(line("sadfasdf ", char="*#")), 90
+        )
+        self.assertEqual(
+            len(line(char="asdfasdfasf#")), 90
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
