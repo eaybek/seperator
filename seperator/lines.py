@@ -26,13 +26,12 @@ def line(
         align = align % width
 
     color_code = getattr(Fore, color.upper())
-    true_width = (
-        len(str(color_code)) + width + len(str(Fore.RESET))
-    )
     if info is None:
         return str(
-            color_code + str(char) * width + Fore.RESET
-        )[0:true_width]
+            color_code
+            + str(str(char) * width)[0:width]
+            + Fore.RESET
+        )
     sub_limit = len(info) + sum(margin) + align
     if width < sub_limit:
         width = sub_limit
@@ -44,12 +43,17 @@ def line(
                 " " * margin[0],
                 info,
                 " " * margin[1],
-                char
-                * (
-                    width - sum(margin) - len(info) - align
-                ),
+                str(
+                    char
+                    * (
+                        width
+                        - sum(margin)
+                        - len(info)
+                        - align
+                    )
+                )[0:width],
                 Fore.RESET,
-            ][0:true_width]
+            ]
         )
 
 
