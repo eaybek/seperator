@@ -26,7 +26,9 @@ def line(
 
     if info is None:
         color_code = getattr(Fore, color.upper())
-        return str(color_code + str(char) * width)
+        return str(
+            color_code + str(char) * width + Fore.RESET
+        )
     sub_limit = len(info) + sum(margin) + align
     if width < sub_limit:
         width = sub_limit
@@ -43,5 +45,6 @@ def line(
                 * (
                     width - sum(margin) - len(info) - align
                 ),
+                Fore.RESET,
             ]
         )
