@@ -12,7 +12,17 @@ def line(
     margin: tuple = (1, 1),
     *args,
 ):
+    # TODO full color cycle through chars
 
+    #    if isinstance(color, list):
+    #        if len(color) > len(char):
+    #            pattern = (
+    #                char
+    #                * (1 + (len(color) / len(char)))[
+    #                    0 : len(color)
+    #                ]
+    #            )
+    #
     columns, _ = shutil.get_terminal_size()
     sup_limit = columns
     if width == 0 or width > columns:
